@@ -3,7 +3,9 @@
 service cron start
 
 # Creating crontab.
-echo '* * * * * /usr/local/bin/python3 /app/main.py >> /app/output 2>&1 ' >> service_cron
+echo '* * * * * /usr/local/bin/python3 /app/main.py --env-id "dev" >> /app/output 2>&1 ' >> service_cron
+echo '*/2 * * * * /usr/local/bin/python3 /app/main.py --env-id "prod" >> /app/output 2>&1 ' >> service_cron
+echo '*/3 * * * * /usr/local/bin/python3 /app/main.py --env-id "qa" >> /app/output 2>&1 ' >> service_cron
 
 # Import crontab.
 crontab service_cron
