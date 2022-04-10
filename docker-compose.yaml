@@ -1,0 +1,21 @@
+version: "3.8"
+
+services: 
+
+  generator-service:
+    container_name: crontab
+    build:
+        context: ./containers/crontab
+        dockerfile: Dockerfile
+    entrypoint: /bin/bash
+    command: crontab.sh
+    restart: always
+    environment:
+      SHELL: /bin/bash
+    networks:
+      - network
+  
+# A local docker network.
+networks:
+  network:
+    driver: bridge
