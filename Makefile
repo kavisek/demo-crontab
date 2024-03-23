@@ -1,3 +1,5 @@
+CONTAINER_NAME=crontab
+
 status:
 	docker compose ls
 	docker container ls
@@ -17,4 +19,7 @@ start: shutdown
 	docker compose up
 
 exec:
-	docker exec -it demo-postgres /bin/bash
+	docker exec -it $(CONTAINER_NAME) /bin/bash
+
+	# View logs
+	tail ./output
