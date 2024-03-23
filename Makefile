@@ -20,6 +20,3 @@ start: shutdown
 
 exec:
 	docker exec -it $(CONTAINER_NAME) /bin/bash
-
-	# View logs
-	tail ./output
